@@ -1,0 +1,955 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #17324d;
+    direction: rtl;
+}
+
+
+/* =========================
+   خلفية الصفحات العامة
+   ========================= */
+
+body:not(.payment-page) {
+    background:
+        linear-gradient(
+            rgba(234, 249, 255, 0.86),
+            rgba(220, 246, 255, 0.90)
+        ),
+        url("images/medical-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* =========================
+   الصفحة الرئيسية + التسجيل
+   ========================= */
+
+.container {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 35px 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 540px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    padding: 38px 34px;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 25px 70px rgba(31, 95, 145, 0.18);
+
+    backdrop-filter: blur(16px);
+}
+
+
+/* =========================
+   الشعار
+   ========================= */
+
+.logo {
+    width: 120px;
+    height: 120px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 30px rgba(36, 103, 232, 0.15);
+}
+
+.logo img {
+    width: 105px;
+    height: 105px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   العناوين
+   ========================= */
+
+.card h1 {
+    margin: 10px 0;
+
+    text-align: center;
+
+    color: #103b68;
+
+    font-size: 32px;
+}
+
+.subtitle {
+    margin-bottom: 26px;
+
+    text-align: center;
+
+    color: #71879a;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   النماذج
+   ========================= */
+
+.card form {
+    width: 100%;
+}
+
+.card label {
+    display: block;
+
+    margin: 15px 0 8px;
+
+    color: #35566d;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card input,
+.card select {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    border: 1px solid #d7e6ed;
+
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    color: #17324d;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.card input::placeholder {
+    color: #9aabb8;
+}
+
+.card input:focus,
+.card select:focus {
+    border-color: #23a9df;
+
+    box-shadow:
+        0 0 0 4px rgba(35, 169, 223, 0.10);
+}
+
+
+/* =========================
+   الأزرار
+   ========================= */
+
+.card button,
+.btn {
+    width: 100%;
+
+    display: block;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #18b7c4,
+            #2567e8
+        );
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    box-shadow:
+        0 10px 25px rgba(37, 103, 232, 0.20);
+}
+
+.card button:hover,
+.btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 28px rgba(37, 103, 232, 0.25);
+}
+
+
+/* =========================
+   زر الرجوع
+   ========================= */
+
+.secondary,
+.btn.secondary {
+    margin-top: 13px;
+
+    background: rgba(255,255,255,0.85);
+
+    color: #248cb2;
+
+    border: 1px solid #d8e7ee;
+
+    box-shadow: none;
+}
+
+.secondary:hover,
+.btn.secondary:hover {
+    background: #edf8fc;
+}
+
+
+/* =========================
+   رسائل الخطأ
+   ========================= */
+
+.error {
+    margin: 15px 0;
+
+    padding: 13px 14px;
+
+    border-radius: 12px;
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    border: 1px solid #fecaca;
+
+    text-align: center;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   صف المعلومات
+   ========================= */
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 12px;
+
+    padding: 14px 16px;
+
+    border-radius: 12px;
+
+    border: 1px solid #dbe8ef;
+
+    background: #f8fbfd;
+}
+
+.info span {
+    color: #617d90;
+}
+
+.info strong {
+    color: #17324d;
+}
+
+
+/* =========================
+   زر واتساب
+   ========================= */
+
+.whatsapp-button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-top: 14px;
+
+    padding: 14px;
+
+    border-radius: 13px;
+
+    background: #25D366;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    transition: 0.2s;
+
+    box-shadow:
+        0 10px 22px rgba(37, 211, 102, 0.20);
+}
+
+.whatsapp-button:hover {
+    background: #1ebe5d;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   صفحة الدفع
+   ========================= */
+
+.payment-page {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(233, 249, 255, 0.82),
+            rgba(229, 248, 255, 0.88)
+        ),
+        url("images/medical-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* =========================
+   هيدر المستشفى
+   ========================= */
+
+.hospital-header {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 6%;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(204, 230, 240, 0.80);
+}
+
+.brand-box {
+    display: flex;
+    align-items: center;
+}
+
+.main-logo {
+    width: 210px;
+    max-width: 42vw;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   دفع آمن
+   ========================= */
+
+.secure-box {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px 15px;
+
+    border-radius: 18px;
+
+    background: rgba(238, 253, 250, 0.92);
+
+    color: #176b72;
+}
+
+.secure-box strong {
+    display: block;
+
+    font-size: 14px;
+}
+
+.secure-box span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    color: #688895;
+}
+
+.small-icon {
+    width: 34px;
+    height: 34px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   كرت الدفع
+   ========================= */
+
+.payment-wrapper {
+    display: flex;
+    justify-content: center;
+
+    padding: 85px 20px 25px;
+}
+
+.payment-card {
+    width: 100%;
+    max-width: 620px;
+
+    position: relative;
+
+    padding: 55px 34px 30px;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.95);
+
+    background: rgba(255, 255, 255, 0.94);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 25px 70px rgba(23, 92, 130, 0.18);
+}
+
+.payment-top-icon {
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+
+    top: -55px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 12px 35px rgba(31, 95, 145, 0.20);
+}
+
+.payment-top-icon img {
+    width: 88px;
+    height: 88px;
+
+    object-fit: contain;
+}
+
+.payment-card h1 {
+    margin: 10px 0 5px;
+
+    text-align: center;
+
+    color: #0b3865;
+
+    font-size: 40px;
+}
+
+
+/* =========================
+   معلومات المريض
+   ========================= */
+
+.patient-info {
+    display: grid;
+
+    gap: 11px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 13px 15px;
+
+    border: 1px solid #dbe8ef;
+
+    border-radius: 12px;
+
+    background: rgba(250, 253, 255, 0.97);
+}
+
+.info-title {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #55758a;
+
+    font-weight: bold;
+}
+
+.info-row strong {
+    color: #17324d;
+}
+
+.field-icon {
+    width: 28px;
+    height: 28px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   اختيار التخصص والطبيب
+   ========================= */
+
+.selection-row {
+    display: grid;
+
+    grid-template-columns: 160px 1fr;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 14px;
+}
+
+.selection-label {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #55758a;
+
+    font-weight: bold;
+}
+
+.selection-row select {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid #d6e4ec;
+
+    border-radius: 12px;
+
+    background: white;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    color: #17324d;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.selection-row select:focus {
+    border-color: #21a8df;
+
+    box-shadow:
+        0 0 0 4px rgba(33, 168, 223, 0.10);
+}
+
+
+/* =========================
+   قيمة الكشف
+   ========================= */
+
+.fee-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 24px;
+
+    padding: 17px 20px;
+
+    border-radius: 16px;
+
+    border: 1px solid #c8ece5;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8fbf7,
+            #e9f7ff
+        );
+}
+
+.fee-title {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.fee-title strong {
+    display: block;
+
+    color: #214f64;
+
+    font-size: 17px;
+}
+
+.fee-title span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #7896a5;
+
+    font-size: 12px;
+}
+
+.money-icon {
+    width: 44px;
+    height: 44px;
+
+    object-fit: contain;
+}
+
+.fee-number {
+    display: flex;
+    align-items: baseline;
+
+    gap: 6px;
+
+    color: #12af93;
+}
+
+.fee-number strong {
+    font-size: 38px;
+}
+
+.fee-number span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   زر الدفع
+   ========================= */
+
+.pay-button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #16b8c4,
+            #2567e8
+        );
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    box-shadow:
+        0 12px 24px rgba(37, 103, 232, 0.20);
+}
+
+.pay-button:hover {
+    transform: translateY(-2px);
+}
+
+.button-icon {
+    width: 27px;
+    height: 27px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   زر الرجوع في صفحة الدفع
+   ========================= */
+
+.back-button {
+    display: block;
+
+    margin-top: 13px;
+
+    padding: 13px;
+
+    border: 1px solid #d7e7ee;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.80);
+
+    color: #248cb2;
+
+    text-align: center;
+    text-decoration: none;
+}
+
+
+/* =========================
+   مميزات أسفل الصفحة
+   ========================= */
+
+.features-row {
+    display: flex;
+    justify-content: center;
+
+    gap: 55px;
+
+    padding: 22px 20px 40px;
+
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    width: 210px;
+
+    text-align: center;
+
+    color: #164c79;
+}
+
+.feature-item img {
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    margin-bottom: 7px;
+}
+
+.feature-item h3 {
+    margin: 4px 0;
+
+    color: #123d70;
+
+    font-size: 16px;
+}
+
+.feature-item p {
+    margin: 0;
+
+    color: #6f8799;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   صفحة الإيصال
+   ========================= */
+
+.success-icon {
+    text-align: center;
+
+    font-size: 70px;
+
+    margin-bottom: 10px;
+}
+
+.queue {
+    margin: 20px 0;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    background: #eef7ff;
+
+    text-align: center;
+}
+
+.queue-number {
+    margin-top: 8px;
+
+    color: #0f5f8f;
+
+    font-size: 48px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   الجوال
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .hospital-header {
+        padding: 13px 15px;
+    }
+
+    .secure-box {
+        display: none;
+    }
+
+    .main-logo {
+        width: 175px;
+    }
+
+    .payment-wrapper {
+        padding-top: 75px;
+    }
+
+    .payment-card {
+        padding: 50px 18px 24px;
+    }
+
+    .selection-row {
+        grid-template-columns: 1fr;
+
+        gap: 7px;
+    }
+
+    .info-row {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 7px;
+    }
+
+    .features-row {
+        gap: 22px;
+    }
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    .card h1 {
+        font-size: 27px;
+    }
+
+    .logo {
+        width: 105px;
+        height: 105px;
+    }
+
+    .logo img {
+        width: 92px;
+        height: 92px;
+    }
+}
+
+
+/* =========================
+   الطباعة
+   ========================= */
+
+@media print {
+
+    .hospital-header,
+    .features-row,
+    .back-button,
+    .whatsapp-button,
+    button,
+    .btn {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+    }
+
+    .card,
+    .payment-card {
+        box-shadow: none !important;
+
+        border: none !important;
+    }
+}
